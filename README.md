@@ -1,9 +1,43 @@
-Analysis of bikesharing_day dataset.
+# Bikesharing Data Analysis
 
-Different models like Linear Regression, Decision Tree and Random Forest were used.
+This project analyzes daily bike-sharing data from Washington, D.C., to uncover patterns, trends, and factors affecting the number of rentals. The final notebook includes a full data science workflow, from exploratory data analysis to model building and evaluation.
 
-Using Variation Inflation Factor method features we were left with were: season, workingday, weathersit, temp, windspeed. Adjusted R2_score achieved was: 0.5043.
+## Dataset
+Dataset from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)
 
-Using Backward elimination method features we were left with were: 'season', 'weathersit', 'temp', 'hum','windspeed'. Adjusted R2_score achieved was: 0.5246.
+The dataset `bikesharing_day.csv` contains daily data from a bike-sharing system and includes:
 
-Using Forward Selection method features we were left with were: ['atemp', 'weathersit', 'season', 'windspeed', 'hum']. Adjusted R2_score achieved was: 0.5263.
+- **Date & seasonality**: Year, month, weekday, season
+- **Weather information**: Temperature, humidity, wind speed, weather condition
+- **User types**: Casual, registered
+- **Target**: Total number of rentals (`cnt`)
+
+## Analysis Steps
+
+- Initial data exploration and summary statistics
+- Visualizations of rental trends across seasons, working days, and weather conditions
+- Correlation analysis of features
+- Model building using:
+  - **Linear Regression (feature selection using VIF method)**
+  - **Linear Regression Backward Selection**
+  - **Linear Regression Forward Selection**
+  - **Decision Tree Regressor**
+  - **Random Forest Regressor**
+ 
+
+## Model Performance
+
+| Model                  | R² Score | Adjusted R² Score |
+|-----------------------|----------|-------------------|
+| Linear Regression (feature selection using VIF method)    | 0.521     | 0.504             |
+| Linear Regression Backward Selection    | 0.5409     | 0.5246              |
+| Linear Regression Forward Selection         | 0.5426     | 0.5263              |
+| Decision Tree      | 0.2246     | 0.1797              |
+| Random Forest | X.XX     | 0.5656              | 0.5404
+
+## Key Findings
+
+- Bike rentals increase significantly in **summer and fall**.
+- **Temperature** and **season** are positively correlated with rental count.
+- **Humidity** and **bad weather** reduce rental volume.
+- **Random Forest** tends to perform better than simple models like Linear Regression.
