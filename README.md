@@ -33,7 +33,7 @@ The dataset `bikesharing_day.csv` contains daily data from a bike-sharing system
 | Linear Regression Backward Selection    | 0.5409     | 0.5246              |
 | Linear Regression Forward Selection         | 0.5426     | 0.5263              |
 | Decision Tree      | 0.2246     | 0.1797              |
-| Random Forest | X.XX     | 0.5656              | 0.5404
+| Random Forest | 0.5656     |   0.5404          | 
 
 ## Key Findings
 
