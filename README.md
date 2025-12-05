@@ -1,43 +1,71 @@
-# Bikesharing Data Analysis
+Analysis of Bike Sharing dataset using Linear Regression 
+This repository contains linear regression analysis, feature selection using PCA, VIF, Subset Selection and application of Shrinkage Methods. 
 
-This project analyzes daily bike-sharing data from Washington, D.C., to uncover patterns, trends, and factors affecting the number of rentals. The final notebook includes a full data science workflow, from exploratory data analysis to model building and evaluation.
+It contains five Jupyter notebooks:
 
-## Dataset
-Dataset from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)
+- **`EDA.ipynb`** — exploring trends/patterns in the data
+- **`subset_selection.ipynb`** — implemented forward and backward selection
+- ** `Shrinkage_methods.ipynb`** — explored impact of Ridge and Lasso on coefficients under presence of multicollinearity.
+- ** `VIF.ipynb`** — feature selection using VIF
+- ** `PCA.ipynb` ** — implemented principal components regression
 
-The dataset `bikesharing_day.csv` contains daily data from a bike-sharing system and includes:
+---
 
-- **Date & seasonality**: Year, month, weekday, season
-- **Weather information**: Temperature, humidity, wind speed, weather condition
-- **User types**: Casual, registered
-- **Target**: Total number of rentals (`cnt`)
+## Table of Contents
 
-## Analysis Steps
+- [Motivation](#motivation)  
+- [Key Findings (Summary)](#key-findings-summary)  
+- [Notebook Details](#notebook-details)  
 
-- Initial data exploration and summary statistics
-- Visualizations of rental trends across seasons, working days, and weather conditions
-- Correlation analysis of features
-- Model building using:
-  - **Linear Regression (feature selection using VIF method)**
-  - **Linear Regression Backward Selection**
-  - **Linear Regression Forward Selection**
-  - **Decision Tree Regressor**
-  - **Random Forest Regressor**
- 
+---
 
-## Model Performance
+## Motivation
 
-| Model                  | R² Score | Adjusted R² Score |
-|-----------------------|----------|-------------------|
-| Linear Regression (feature selection using VIF method)    | 0.521     | 0.504             |
-| Linear Regression Backward Selection    | 0.5409     | 0.5246              |
-| Linear Regression Forward Selection         | 0.5426     | 0.5263              |
-| Decision Tree      | 0.2246     | 0.1797              |
-| Random Forest | 0.5656     |   0.5404          | 
+Linear regression is explored through the bike sharing dataset, especially the effect of multicollinearity.
+This project aims to:
 
-## Key Findings
+- Explore patterns in the data through visualizations
+- Explore the effects of multicollinearity on coefficients using Ridge regression, Lasso regression 
+- Carry out feature selection using Lasso, PCA, VIF and subset selection
 
-- Bike rentals increase significantly in **summer and fall**.
-- **Temperature** and **season** are positively correlated with rental count.
-- **Humidity** and **bad weather** reduce rental volume.
-- **Random Forest** tends to perform better than simple models like Linear Regression.
+---
+
+## Key Findings (Summary)
+
+### **Presence of multicollinearity**
+- Correlation heatmap shows moderate to high multicollinearity.
+- This was confirmed by high VIF of some features.
+- Multicollinearity was expected because features like `atemp,temp` are expected to have strong correlation.
+
+### **Feature Selection/Extraction**
+- Feature selection was performed using forward selection, backward selection, VIF and Lasso
+- A smaller subset of principal components was used to fit a regression model.
+
+---
+
+## Notebook Details
+
+### **EDA.ipynb**
+- Load and clean the data
+- Boxplots, histograms of count of bike rentals for different levels of categorical variables 
+- Correlation heatmap
+
+
+### **subset_selection.ipynb**
+- Implement forward and backward selection
+- Both AIC and Adjusted-$R^2$ were used to find the best model
+
+### **Shrinkage_methods.ipynb**
+- Effect of Lasso and Ridge regression on coefficients
+- Feature selection using Lasso
+
+### **VIF.ipynb**
+- Threshold of VIF was set to remove features with VIF above this threshold
+
+### **PCA.ipynb**
+- Plotted the first two principal components
+- Loading vectors for each features were also plotted
+- Regression was done using the principal components.
+
+
+---
