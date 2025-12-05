@@ -7,7 +7,7 @@ It contains five Jupyter notebooks:
 - **`subset_selection.ipynb`** — implemented forward and backward selection
 - **`Shrinkage_methods.ipynb`** — explored impact of Ridge and Lasso on coefficients under presence of multicollinearity.
 - **`VIF.ipynb`** — feature selection using VIF
-- **`PCA.ipynb` ** — implemented principal components regression
+- **`PCA.ipynb`** — implemented principal components regression
 
 ---
 
